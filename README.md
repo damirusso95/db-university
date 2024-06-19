@@ -17,8 +17,19 @@ SELECT * FROM `courses` WHERE `period` = 'I semestre' AND year = 1;
 SELECT * FROM `exams` WHERE date = '2020-06-20' AND hour > '14:00:00';
 
 6 Selezionare tutti i corsi di laurea magistrale (38)
+SELECT * FROM `degrees` WHERE LEVEL = 'magistrale';
+
 7 Da quanti dipartimenti è composta l'università? (12)
+SELECT * FROM `departments`
+
 8 Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+SELECT * FROM `teachers` WHERE `phone` IS NULL;
+
 9 Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo degree_id, inserire un valore casuale)
+INSERT INTO `students` (`id`, `degree_id`, `name`, `surname`, `date_of_birth`, `fiscal_code`, `enrolment_date`, `registration_number`, `email`) VALUES ('0', '11', 'damiano', 'russo', '2018-06-14', 'rssdmn98dus8s89', '2024-06-04', '1995', 'damiano@gksodkds.it');
+
 10 Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
-11 Eliminare dalla tabella studenti il record creato precedentemente al punto 9
+UPDATE teachers SET office_number = 126 WHERE name = 'Pietro' AND surname = 'Rizzo';
+
+11 Eliminare dalla tabella studenti il record creato precedentemente al punto 9.
+DELETE FROM students WHERE name = 'damiano' AND surname = 'russo' AND email = 'damiano@gksodkds.it';
